@@ -1,0 +1,115 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="12.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{BDEA99F1-B278-4C13-A05C-8996A857FE1E}</ProjectGuid>
+    <OutputType>WinExe</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>Mvp.Passive.View.Base2</RootNamespace>
+    <AssemblyName>Mvp.Passive.View.Base2</AssemblyName>
+    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <TargetFrameworkProfile />
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <Prefer32Bit>false</Prefer32Bit>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <Prefer32Bit>false</Prefer32Bit>
+  </PropertyGroup>
+  <PropertyGroup>
+    <StartupObject />
+  </PropertyGroup>
+  <ItemGroup>
+    <None Include="App.config">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Packages.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Commands\AddDefaultCredential.cs" />
+    <Compile Include="Commands\DefaultCredentialCommand.cs" />
+    <Compile Include="Commands\RemoveDefaultCredential.cs" />
+    <Compile Include="Commands\UpdateDefaultCredential.cs" />
+    <Compile Include="Log4NetTextWriter.cs" />
+    <Compile Include="Program.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Version.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Version.tt</DependentUpon>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <Reference Include="log4net, Version=1.2.15.0, Culture=neutral, PublicKeyToken=669e0ddf0bb1aa2a, processorArchitecture=MSIL">
+      <HintPath>..\packages\log4net.2.0.5\lib\net45-full\log4net.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="ManyConsole, Version=0.4.2.19, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\ManyConsole.0.4.2.19\lib\ManyConsole.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="NDesk.Options, Version=0.2.1.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\NDesk.Options.0.2.1\lib\NDesk.Options.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Windows.Forms" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Mvp.Passive.View.Base2.Midelware\Mvp.Passive.View.Base2.Midelware.csproj">
+      <Project>{CD6EC7DA-12C4-41E3-B518-AE3BEE69CF53}</Project>
+      <Name>Mvp.Passive.View.Base2.Midelware</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Mvp.Passive.View.Base2.Model\Mvp.Passive.View.Base2.Model.csproj">
+      <Project>{2E840611-8D2C-40B8-A61F-8DEB4B90E377}</Project>
+      <Name>Mvp.Passive.View.Base2.Model</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Mvp.Passive.View.Base2.Presenter\Mvp.Passive.View.Base2.Presenter.csproj">
+      <Project>{7FE59B55-91DC-4227-8BB9-65E56B4BF919}</Project>
+      <Name>Mvp.Passive.View.Base2.Presenter</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Mvp.Passive.View.Base2.View\Mvp.Passive.View.Base2.View.csproj">
+      <Project>{882E7B86-B894-438D-BB9D-BB4F10653C26}</Project>
+      <Name>Mvp.Passive.View.Base2.View</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Mvp.Passive.Default.Midelware\Mvp.Passive.Default.Midelware.csproj">
+      <Project>{4D9D12DA-9561-4634-AB8D-25BA917EC05B}</Project>
+      <Name>Mvp.Passive.Default.Midelware</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Version.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <LastGenOutput>Version.cs</LastGenOutput>
+    </Content>
+  </ItemGroup>
+  <ItemGroup>
+    <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>
